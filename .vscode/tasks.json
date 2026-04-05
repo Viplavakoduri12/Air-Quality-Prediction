@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Air Quality App",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "${workspaceFolder}/main.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Windows executable",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "-m",
+        "PyInstaller",
+        "--noconfirm",
+        "--clean",
+        "--onedir",
+        "--name",
+        "AirQualityPredictor",
+        "--collect-all",
+        "streamlit",
+        "--collect-all",
+        "matplotlib",
+        "--collect-all",
+        "xgboost",
+        "--collect-all",
+        "altair",
+        "--collect-all",
+        "pydeck",
+        "--hidden-import",
+        "streamlit.web.cli",
+        "--add-data",
+        "app.py;.",
+        "--add-data",
+        "xgboost_aqi_model.pkl;.",
+        "main.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
