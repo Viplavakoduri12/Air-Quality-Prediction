@@ -13,7 +13,6 @@ import matplotlib.pyplot as plt
 APP_ICON = "\U0001F30D"
 MODEL_FILENAME = "xgboost_aqi_model.pkl"
 DATA_FILENAME = "city_day.csv"
-AUTHOR_NAME = "Viplava"
 APP_TITLE = "Air Quality Prediction System"
 
 
@@ -28,7 +27,7 @@ def load_model(model_file: Path):
 
 
 st.set_page_config(
-    page_title=f"{AUTHOR_NAME} | Air Quality Predictor",
+    page_title="Air Quality Predictor",
     page_icon=APP_ICON,
     layout="wide",
 )
@@ -46,9 +45,6 @@ st.sidebar.title("About Project")
 st.sidebar.info(
     f"""
 {APP_TITLE}
-
-Prepared By:
-{AUTHOR_NAME}
 
 Model Used:
 XGBoost Regressor
@@ -104,7 +100,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.markdown(
-    f'<p class="subtitle">Predict AQI using XGBoost Machine Learning Model | {AUTHOR_NAME}</p>',
+    '<p class="subtitle">Predict AQI using XGBoost Machine Learning Model</p>',
     unsafe_allow_html=True,
 )
 
@@ -168,5 +164,5 @@ else:
 
 st.markdown("---")
 st.markdown(
-    f"Developed by {AUTHOR_NAME} | Machine Learning Project | Air Quality Prediction using XGBoost"
+    "Machine Learning Project | Air Quality Prediction using XGBoost"
 )
